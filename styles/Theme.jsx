@@ -7,8 +7,8 @@ export const windowWidth = Dimensions.get("window").width
 
 export const isIpad = windowWidth > 700 ? true : false;
 
-export const themeColor = '#4cbb17';
-export const secondaryColor = '#2a4494';
+export const themeColor = '#6b72ff';
+export const secondaryColor = '#30cdff';
 export const bgColor = isDarkMode ? "#333" : '#fafafa';
 export const darkThemeColor = "#0b5d1e";
 export const whiteColor = '#ffffff';
@@ -118,13 +118,12 @@ export const GlobalStyle = StyleSheet.create({
     color: textColor
   },
   themeBtn2: {
-    // backgroundColor: itemBg,
-    flexDirection: 'row',
+    backgroundColor: secondaryColor,
+    width: isIpad ? (windowWidth / 2) - 40 : windowWidth - 40,
+    paddingVertical: 16,
+    display: 'flex',
     alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 20,
-    borderRadius: 10,
-    gap: 10,
+    justifyContent: 'center',
     ...Platform.select({
       ios: {
         shadowColor: "#fff5",
@@ -136,12 +135,14 @@ export const GlobalStyle = StyleSheet.create({
         elevation: 3,
       },
     }),
+    borderRadius: 10,
+    marginHorizontal: 'auto',
   },
   themeBtn2Text: {
-    fontFamily: 'axiform-regular',
-    fontSize: generalFontSize,
-    color: textColor,
-    fontWeight: '400'
+    fontFamily: 'axiform-medium',
+    color: whiteColor,
+    fontSize: generalFontSize + 4,
+    textTransform: 'uppercase'
   },
   link: {
     fontFamily: 'axiform-regular',
@@ -166,37 +167,49 @@ export const GlobalStyle = StyleSheet.create({
   fullWidth: {
     width: (windowWidth - 40)
   },
+  logoCont: {
+    width: "90%",
+    paddingTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 'auto',
+    marginHorizontal: 'auto'
+  },
   headingCont: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: "75%",
     paddingTop: 30,
-    marginTop: 'auto',
-    marginHorizontal: 'auto'
+    width: "90%",
+    marginVertical: 'auto',
+    marginHorizontal: 'auto',
   },
   pageHeading: {
     fontSize: generalFontSize * 4,
-    fontFamily: 'axiform-bold',
-    fontWeight: "700",
+    fontFamily: 'wosker',
     textAlign: 'center',
-    color: themeColor,
-    textTransform: 'uppercase'
+    color: whiteColor,
+    // lineHeight: generalFontSize * 3,
+    textTransform: 'uppercase',
+    marginTop: 20
   },
   pageSubHeading: {
-    fontSize: generalFontSize + 8,
+    fontSize: generalFontSize + 4,
     fontFamily: 'axiform-medium',
     fontWeight: "500",
     textAlign: 'center',
     color: textColor,
-    marginTop: 15,
     lineHeight: generalFontSize * 2
   },
   loginContainer: {
     marginTop: 'auto',
-    paddingBottom: 20
+    paddingBottom: 20,
+    backgroundColor: themeColor,
+    // minHeight: "70%",
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
   },
   inputCont: {
-    marginBottom: 20
+    marginBottom: 10
   },
   inputLabel: {
     fontSize: generalFontSize + 4,
@@ -214,6 +227,10 @@ export const GlobalStyle = StyleSheet.create({
     fontFamily: 'axiform-regular',
     color: textColor
   },
+  altrInput: {
+    borderColor: whiteColor,
+    color: whiteColor
+  },
   linkBtn: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -222,12 +239,22 @@ export const GlobalStyle = StyleSheet.create({
     marginTop: 10
   },
   linkBtnText: {
-    color: textColor,
+    color: whiteColor,
     fontSize: generalFontSize + 2,
     fontFamily: 'axiform-regular',
   },
   linkBtnMain: {
-    color: themeColor,
-    fontFamily: 'axiform-bold',
+    color: secondaryColor,
+    fontWeight: "700",
+  },
+  pageWrapper: {
+    position: 'relative',
+    flex: 1
+  },
+  pageContainer: {
+    flex: 1
+  },
+  formContainer: {
+    marginTop: 30
   }
 });
