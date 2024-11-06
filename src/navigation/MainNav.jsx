@@ -1,15 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet } from 'react-native'
+import React from 'react'
 import UserNavigation from './UserNavigation'
 import AuthNavigation from './AuthNavigation'
+import { useSelector } from 'react-redux'
 
 const MainNav = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
 
     return (
         <>
             {
-                isLoggedIn ?
+                isAuthenticated ?
                     (
                         <UserNavigation />
                     )

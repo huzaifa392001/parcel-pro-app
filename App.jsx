@@ -8,14 +8,17 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import MainNav from './src/navigation/MainNav';
+import { Provider } from 'react-redux';
+import { store } from './src/Redux/Store';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <NavigationContainer>
-      <MainNav />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MainNav />
+      </NavigationContainer>
+    </Provider>
   );
 }
 
