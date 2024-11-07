@@ -9,11 +9,11 @@ export const isIpad = windowWidth > 700 ? true : false;
 
 export const themeColor = '#6b72ff';
 export const secondaryColor = '#30cdff';
-export const bgColor = isDarkMode ? '#fafafa' : "#333";
+export const bgColor = "#eeeeee";
 export const darkThemeColor = "#0b5d1e";
 export const whiteColor = '#ffffff';
 export const blackColor = '#000000';
-export const textColor = isDarkMode ? whiteColor : blackColor
+export const textColor = blackColor
 
 export const generalFontSize = 16;
 
@@ -156,16 +156,17 @@ export const GlobalStyle = StyleSheet.create({
     },
     secHeading: {
         color: textColor,
-        fontFamily: 'FreightBigPro-Bold',
-        fontSize: generalFontSize + 2,
-        marginBottom: 16
+        fontFamily: 'Axiforma-Bold',
+        fontSize: generalFontSize + 4,
+        marginBottom: 5
     },
     fullWidth: {
         width: (windowWidth - 40)
     },
     pageWrapper: {
         position: 'relative',
-        flex: 1
+        flex: 1,
+        backgroundColor: bgColor
     },
     pageContainer: {
         flex: 1
@@ -193,4 +194,7 @@ export const GlobalStyle = StyleSheet.create({
         borderColor: whiteColor,
         color: whiteColor
     },
+    section: {
+        paddingVertical: 20
+    }
 });
