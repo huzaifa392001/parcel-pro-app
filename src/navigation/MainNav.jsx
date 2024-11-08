@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 import React from 'react'
-import UserNavigation from './UserNavigation'
+import UserNavigation from './userNavigations/UserNavigation'
 import AuthNavigation from './AuthNavigation'
 import { useSelector } from 'react-redux'
 

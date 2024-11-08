@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBox } from '@fortawesome/free-solid-svg-icons'
+import { faBox, faChevronCircleRight, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { bgColor, generalFontSize, textColor, themeColor, whiteColor } from '../styles/Theme'
 
 const OrderCard = (props) => {
@@ -29,6 +29,11 @@ const OrderCard = (props) => {
                     {props?.status ?? 'Waiting'}
                 </Text>
             </View>
+            <FontAwesomeIcon
+                icon={faChevronRight}
+                size={generalFontSize}
+                color={themeColor}
+            />
         </TouchableOpacity>
     )
 }

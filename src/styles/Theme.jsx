@@ -28,7 +28,7 @@ export const GlobalStyle = StyleSheet.create({
         //         paddingBottom: 60,
         //     },
         // }),
-        paddingBottom: 30,
+        paddingBottom: 70,
         backgroundColor: bgColor,
         height: '100%',
         position: 'relative'
@@ -157,7 +157,7 @@ export const GlobalStyle = StyleSheet.create({
     secHeading: {
         color: textColor,
         fontFamily: 'Axiforma-Bold',
-        fontSize: generalFontSize + 4,
+        fontSize: generalFontSize + 8,
         marginBottom: 5
     },
     fullWidth: {
@@ -166,7 +166,7 @@ export const GlobalStyle = StyleSheet.create({
     pageWrapper: {
         position: 'relative',
         flex: 1,
-        backgroundColor: bgColor
+        backgroundColor: bgColor,
     },
     pageContainer: {
         flex: 1
