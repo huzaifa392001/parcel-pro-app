@@ -37,10 +37,10 @@ const UserHome = () => {
                         <Text style={GlobalStyle.secHeading}>Active Delivery</Text>
                         <ActiveOrderCard />
                     </View>
-                    <View style={GlobalStyle.section}>
+                    {/* <View style={GlobalStyle.section}>
                         <Text style={GlobalStyle.secHeading}>Recent Orders</Text>
                         <OrdersList />
-                    </View>
+                    </View> */}
                     <View style={GlobalStyle.section}>
                         <TouchableOpacity onPress={logoutFunc} style={GlobalStyle.themeBtn}>
                             <Text style={GlobalStyle.themeBtnText}>Logout</Text>

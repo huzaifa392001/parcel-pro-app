@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { generalFontSize, themeColor, whiteColor, windowWidth } from '../styles/Theme';
-import { faHome, faTruckFast, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faMotorcycle, faTruck, faTruckFast, } from '@fortawesome/free-solid-svg-icons';
 
 const BottomNavTabs = ({ state, descriptors, navigation }) => {
     return (
@@ -31,10 +31,10 @@ const BottomNavTabs = ({ state, descriptors, navigation }) => {
                         <FontAwesomeIcon
                             icon={
                                 route.name === "home" ? faHome :
-                                    route.name === "profile" ? faUser :
-                                        route.name === 'tracking' ? faTruckFast : ''
+                                    route.name === "scooter" ? faMotorcycle :
+                                        route.name === 'truck' ? faTruck : faTruckFast
                             }
-                            size={generalFontSize + 8}
+                            size={generalFontSize * 2}
                             color={isFocused ? whiteColor : themeColor}
                         />
                     </TouchableOpacity>

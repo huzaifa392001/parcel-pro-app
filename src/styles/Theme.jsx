@@ -28,7 +28,7 @@ export const GlobalStyle = StyleSheet.create({
         //         paddingBottom: 60,
         //     },
         // }),
-        paddingBottom: 70,
+        paddingBottom: 0,
         backgroundColor: bgColor,
         height: '100%',
         position: 'relative'
@@ -157,8 +157,14 @@ export const GlobalStyle = StyleSheet.create({
     secHeading: {
         color: textColor,
         fontFamily: 'Axiforma-Bold',
-        fontSize: generalFontSize + 8,
+        fontSize: generalFontSize + 6,
         marginBottom: 5
+    },
+    generalDescription: {
+        color: textColor,
+        fontFamily: 'Axiforma-Regular',
+        fontSize: generalFontSize - 2,
+        lineHeight: generalFontSize + 2
     },
     fullWidth: {
         width: (windowWidth - 40)
@@ -176,8 +182,8 @@ export const GlobalStyle = StyleSheet.create({
     },
     inputLabel: {
         fontSize: generalFontSize + 4,
-        color: whiteColor,
-        marginBottom: 10,
+        color: textColor,
+        marginBottom: 5,
         fontFamily: 'Axiforma-Medium',
     },
     input: {
@@ -196,5 +202,29 @@ export const GlobalStyle = StyleSheet.create({
     },
     section: {
         paddingVertical: 20
+    },
+    formContainer: {
+        marginTop: 10
+    },
+    inputWithIconCont: {
+        borderColor: textColor,
+        borderWidth: 1,
+        height: 60,
+        paddingHorizontal: 10,
+        borderRadius: 10,
+        position: 'relative',
+        flexDirection: 'row',
+        alignItems: 'center',
+        input: {
+            fontSize: generalFontSize + 2,
+            fontFamily: 'Axiforma-Regular',
+            color: textColor,
+            width: windowWidth - 80,
+        }
+    },
+    textarea: {
+        minHeight: 150,
+        height: 'auto',
+        textAlignVertical: 'top', // This ensures text is aligned at the top
     }
 });

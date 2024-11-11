@@ -28,7 +28,7 @@ const UserHeader = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <TouchableOpacity style={styles.notificationBtn}>
+            <TouchableOpacity onPress={() => navigation.navigate("notification")} style={styles.notificationBtn}>
                 <FontAwesomeIcon
                     icon={faBell}
                     size={generalFontSize + 4}

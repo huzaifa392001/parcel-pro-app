@@ -1,16 +1,23 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { blackColor, generalFontSize, secondaryColor, themeColor, whiteColor, windowWidth } from '../styles/Theme'
-import { faChevronRight, faMotorcycle, faTruck } from '@fortawesome/free-solid-svg-icons'
+import { faCarSide, faChevronRight, faMotorcycle, faTruck, faTruckFast } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { useNavigation } from '@react-navigation/native'
 
 const ServiceCard = (props) => {
+    const navigation = useNavigation()
     return (
-        <TouchableOpacity style={styles.serviceCard}>
+        <TouchableOpacity onPress={() => navigation.navigate(props?.data?.link)} style={styles.serviceCard}>
             <Text style={styles.heading}>{props?.data?.service}</Text>
             <View style={styles.iconCont}>
                 <FontAwesomeIcon
-                    icon={props?.data?.service === 'truck' || props?.data?.service === "house moving" ? faTruck : props?.data?.service === "scooter" ? faMotorcycle : faMotorcycle}
+                    icon={
+                        props?.data?.service === 'truck' ?
+                            faTruck : props?.data?.service === "house moving" ?
+                                faTruckFast : props?.data?.service === "scooter" ?
+                                    faMotorcycle : faCarSide
+                    }
                     color={secondaryColor}
                     size={generalFontSize * 5}
                 />

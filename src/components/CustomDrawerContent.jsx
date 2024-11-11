@@ -31,7 +31,7 @@ const CustomDrawerContent = (props) => {
                     icon={() => (
                         <FontAwesomeIcon icon={faHome} color={themeColor} size={generalFontSize + 6} />
                     )}
-                    onPress={() => navigation.navigate("dashboard")}
+                    onPress={() => navigation.navigate("home")}
                 />
                 <DrawerItem
                     style={styles.drawerItem}

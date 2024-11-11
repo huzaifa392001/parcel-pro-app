@@ -1,18 +1,17 @@
 [
     {
         "id": "1",
-        "service": "scooter"
+        "service": "scooter",
+        "link": "scooter"
     },
     {
         "id": "2",
-        "service": "truck"
+        "service": "truck",
+        "link": "truck"
     },
     {
         "id": "3",
-        "service": "house moving"
-    },
-    {
-        "id": "4",
-        "service": "In-City Travel"
+        "service": "house moving",
+        "link": "houseMoving"
     }
 ]
