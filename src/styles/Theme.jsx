@@ -226,5 +226,61 @@ export const GlobalStyle = StyleSheet.create({
         minHeight: 150,
         height: 'auto',
         textAlignVertical: 'top', // This ensures text is aligned at the top
+    },
+    pillsCont: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 10
+    },
+    pill: {
+        borderWidth: 2,
+        borderColor: themeColor,
+        borderRadius: 5,
+        paddingVertical: 5,
+        paddingHorizontal: 13
+    },
+    pillsText: {
+        color: themeColor,
+        fontSize: generalFontSize,
+        fontFamily: "Axiforma-Medium"
+    },
+    activePill: {
+        backgroundColor: themeColor,
+    },
+    activePillText: {
+        color: whiteColor
+    },
+    picturePreview: {
+        borderWidth: 1,
+        borderColor: textColor,
+        padding: 10,
+        paddingBottom: 0,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden'
+    },
+    dummyPicturePreview: {
+        width: 300,
+        height: 300,
+        objectFit: 'contain'
+    },
+    pictureText: {
+        color: whiteColor,
+        fontFamily: "Axiforma-Bold",
+        fontSize: generalFontSize - 3,
+        fontWeight: "600"
+    },
+    uploadBtnCont: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        width: windowWidth - 40
+    },
+    uploadBtn: {
+        backgroundColor: secondaryColor,
+        padding: 10,
+        width: (windowWidth / 2) - 20,
+        alignItems: 'center'
     }
 });

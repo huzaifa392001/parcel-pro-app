@@ -29,7 +29,7 @@ const Signup = ({ navigation }) => {
                     <ScrollView
                         showsVerticalScrollIndicator={false}
                     >
-                        <View style={[GlobalStyle.container, { height: 'auto', backgroundColor: 'transparent' }]}>
+                        <View style={[GlobalStyle.container, { height: 'auto', backgroundColor: 'transparent', paddingBottom: 30 }]}>
                             <Animated.Text entering={FadeIn.duration(1000)} style={[AuthStyles.pageHeading, { fontSize: generalFontSize * 3 }]}>Create Profile</Animated.Text>
                             <View style={AuthStyles.formContainer}>
                                 <Animated.View

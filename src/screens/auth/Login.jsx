@@ -28,7 +28,7 @@ const Login = ({ navigation }) => {
                     <ScrollView
                         showsVerticalScrollIndicator={false}
                     >
-                        <View style={[GlobalStyle.container, { height: 'auto', backgroundColor: 'transparent' }]}>
+                        <View style={[GlobalStyle.container, { height: 'auto', backgroundColor: 'transparent', paddingBottom: 30 }]}>
                             <Animated.Text entering={FadeIn.duration(1000)} style={AuthStyles.pageHeading}>Login</Animated.Text>
                             <View style={styles.imgContainer}>
                                 <Animated.Image

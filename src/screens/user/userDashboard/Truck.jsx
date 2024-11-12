@@ -9,9 +9,11 @@ import DatePicker from 'react-native-date-picker'
 // Import utility functions
 import { formatTime, roundToNearest30Min, isValidTime } from '../../../utils/Utils'
 
-const Truck = () => {
+const Truck = ({ navigation }) => {
   const [date, setDate] = useState(null) // Initialize as null to show "Select Time"
   const [open, setOpen] = useState(false)
+  const [otherDescription, setOtherDescription] = useState()
+  const [selectedPill, setSelectedPill] = useState(null) // New state for selected pill
 
   const handleConfirm = (date) => {
     const roundedDate = roundToNearest30Min(date)
@@ -21,6 +23,11 @@ const Truck = () => {
     } else {
       alert("Please select a time between 9 AM and 5 PM")
     }
+  }
+
+  const handlePillPress = (pill) => {
+    setSelectedPill(pill)
+    setOtherDescription(pill === 'Other')
   }
 
   return (
@@ -81,15 +88,36 @@ const Truck = () => {
               </View>
               <View style={GlobalStyle.inputCont}>
                 <Text style={GlobalStyle.inputLabel}>Item Description</Text>
-                <TextInput
-                  placeholder='Item Description'
-                  placeholderTextColor={textColor}
-                  style={[GlobalStyle.input, GlobalStyle.textarea]}
-                  multiline
-                />
+                <View style={GlobalStyle.pillsCont}>
+                  {["Food", "Documents", "Clothings", "Digital Products", "Glass Product", "Other"].map((pill, index) => (
+                    <TouchableOpacity
+                      key={index}
+                      style={[
+                        GlobalStyle.pill,
+                        selectedPill === pill && GlobalStyle.activePill // Apply active style if selected
+                      ]}
+                      onPress={() => handlePillPress(pill)}
+                    >
+                      <Text style={[
+                        GlobalStyle.pillsText,
+                        selectedPill === pill && GlobalStyle.activePillText // Apply active text style if selected
+                      ]}>
+                        {pill}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+                {otherDescription && (
+                  <TextInput
+                    placeholder='Item Description'
+                    placeholderTextColor={textColor}
+                    style={[GlobalStyle.input, GlobalStyle.textarea, { marginTop: 10 }]}
+                    multiline
+                  />
+                )}
               </View>
               <View style={GlobalStyle.inputCont}>
-                <TouchableOpacity style={GlobalStyle.themeBtn}>
+                <TouchableOpacity onPress={() => navigation.navigate("step1")} style={GlobalStyle.themeBtn}>
                   <Text style={GlobalStyle.themeBtnText}>Continue</Text>
                 </TouchableOpacity>
               </View>
@@ -108,6 +136,7 @@ const Truck = () => {
         }}
         minuteInterval={30} // Ensure 30-minute intervals
       />
+      {/* <PriceSheet/> */}
     </SafeAreaView>
   )
 }
