@@ -10,12 +10,25 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // Adding JitPack repository for third-party dependencies
+        maven { url 'https://www.jitpack.io' }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        classpath("com.android.tools.build:gradle:8.1.0")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter() // May be deprecated, consider removing if not needed
+        google()
+        maven { url "$rootDir/../node_modules/react-native/android" }
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://www.jitpack.io' }
+    }
+}
