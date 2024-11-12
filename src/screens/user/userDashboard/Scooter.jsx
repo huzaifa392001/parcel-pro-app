@@ -1,6 +1,6 @@
 import { Image, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { bgColor, generalFontSize, GlobalStyle, textColor, themeColor } from '../../../styles/Theme'
+import { bgColor, generalFontSize, GlobalStyle, textColor, themeColor, windowWidth } from '../../../styles/Theme'
 import QuickNav from '../../../components/QuickNav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faClock, faLocationPin } from '@fortawesome/free-solid-svg-icons'
@@ -29,8 +29,6 @@ const Scooter = ({ navigation }) => {
 
   const openImagePicker = () => {
     ImagePicker.openPicker({
-      width: 300,
-      height: 400,
       cropping: true
     }).then(image => {
       setImageUri(image.path) // Set image URI
@@ -39,8 +37,6 @@ const Scooter = ({ navigation }) => {
 
   const openCamera = () => {
     ImagePicker.openCamera({
-      width: 300,
-      height: 400,
       cropping: true,
     }).then(image => {
       setImageUri(image.path) // Set image URI
@@ -102,18 +98,19 @@ const Scooter = ({ navigation }) => {
                     color={themeColor}
                   />
                   <View style={[GlobalStyle.inputWithIconCont.input, { paddingLeft: 7 }]}>
-                    <Text style={{ fontFamily: "Axiforma-Regular", color: textColor, fontSize: generalFontSize + 2 }}>
+                    <Text style={{ fontFamily: "Axiforma-Regular", color: textColor, fontSize: generalFontSize }}>
                       {date ? formatTime(date) : "Select Time"}
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={GlobalStyle.inputCont}>
-                <Text style={GlobalStyle.inputLabel}>Item Picture</Text>
-                <Text style={[GlobalStyle.inputLabel, { fontSize: generalFontSize - 2 }]}>* Picture will be hidden from Rider *</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <Text style={GlobalStyle.inputLabel}>Item Picture</Text>
+                  <Text style={[GlobalStyle.inputLabel, { fontSize: generalFontSize - 4 }]}>* Picture will be hidden from Rider *</Text>
+                </View>
                 <View style={GlobalStyle.pictureBtn}>
                   <View style={GlobalStyle.picturePreview} >
-                    {/* Display image preview if available */}
                     {imageUri ? (
                       <Image source={{ uri: imageUri }} style={GlobalStyle.dummyPicturePreview} />
                     ) : (
@@ -189,5 +186,3 @@ const Scooter = ({ navigation }) => {
 }
 
 export default Scooter
-
-const styles = StyleSheet.create({})

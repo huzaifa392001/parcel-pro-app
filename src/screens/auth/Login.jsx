@@ -95,6 +95,6 @@ const styles = StyleSheet.create({
     loginImg: {
         height: "100%",
         width: windowWidth - 40,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
     }
 })

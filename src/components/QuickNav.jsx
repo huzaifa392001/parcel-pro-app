@@ -18,7 +18,7 @@ const QuickNav = () => {
                 onPress={() => navigation.navigate('scooter')}
             >
                 <View style={[styles.btnIcon, isRouteActive('scooter') && styles.activeBtnIcon]}>
-                    <FontAwesomeIcon icon={faMotorcycle} color={whiteColor} size={generalFontSize * 3} />
+                    <FontAwesomeIcon icon={faMotorcycle} color={whiteColor} size={generalFontSize * 2} />
                 </View>
                 <Text style={styles.btnText}>Scooter</Text>
             </TouchableOpacity>
@@ -28,7 +28,7 @@ const QuickNav = () => {
                 onPress={() => navigation.navigate('truck')}
             >
                 <View style={[styles.btnIcon, isRouteActive('truck') && styles.activeBtnIcon]}>
-                    <FontAwesomeIcon icon={faTruck} color={whiteColor} size={generalFontSize * 3} />
+                    <FontAwesomeIcon icon={faTruck} color={whiteColor} size={generalFontSize * 2} />
                 </View>
                 <Text style={styles.btnText}>Truck</Text>
             </TouchableOpacity>
@@ -38,7 +38,7 @@ const QuickNav = () => {
                 onPress={() => navigation.navigate('houseMoving')}
             >
                 <View style={[styles.btnIcon, isRouteActive('houseMoving') && styles.activeBtnIcon]}>
-                    <FontAwesomeIcon icon={faTruckFast} color={whiteColor} size={generalFontSize * 3} />
+                    <FontAwesomeIcon icon={faTruckFast} color={whiteColor} size={generalFontSize * 2} />
                 </View>
                 <Text style={styles.btnText}>Movers</Text>
             </TouchableOpacity>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
-        paddingVertical: 30,
+        paddingVertical: 15,
         width: windowWidth,
         backgroundColor: whiteColor,
         shadowColor: '#000',

@@ -181,7 +181,7 @@ export const GlobalStyle = StyleSheet.create({
         marginBottom: 10
     },
     inputLabel: {
-        fontSize: generalFontSize + 4,
+        fontSize: generalFontSize + 2,
         color: textColor,
         marginBottom: 5,
         fontFamily: 'Axiforma-Medium',
@@ -192,7 +192,7 @@ export const GlobalStyle = StyleSheet.create({
         height: 60,
         paddingHorizontal: 10,
         borderRadius: 10,
-        fontSize: generalFontSize + 2,
+        fontSize: generalFontSize,
         fontFamily: 'Axiforma-Regular',
         color: textColor
     },
@@ -216,7 +216,7 @@ export const GlobalStyle = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         input: {
-            fontSize: generalFontSize + 2,
+            fontSize: generalFontSize,
             fontFamily: 'Axiforma-Regular',
             color: textColor,
             width: windowWidth - 80,
@@ -261,9 +261,16 @@ export const GlobalStyle = StyleSheet.create({
         overflow: 'hidden'
     },
     dummyPicturePreview: {
-        width: 300,
-        height: 300,
-        objectFit: 'contain'
+        width: windowWidth - 60,
+        height: windowWidth - 60,
+        objectFit: 'contain',
+        backgroundColor: whiteColor,
+        shadowColor: '#000',
+        shadowOffset: { width: 3, height: 3 },
+        shadowOpacity: 0.8,
+        shadowRadius: 3,
+        elevation: 10,
+        borderRadius: 10
     },
     pictureText: {
         color: whiteColor,
@@ -275,7 +282,8 @@ export const GlobalStyle = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
-        width: windowWidth - 40
+        width: windowWidth - 40,
+        marginTop: 10
     },
     uploadBtn: {
         backgroundColor: secondaryColor,
