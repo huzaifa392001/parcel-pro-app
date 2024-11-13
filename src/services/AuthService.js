@@ -10,8 +10,8 @@ export const AuthService = {
             store.dispatch(setLoading(false))
             return response.data;
         } catch (error) {
-            console.log('Error making request:', error.response.data.message);
-            errorToast(error.response.data.message)
+            console.log('Error making request:', error);
+            // errorToast(error.response.data.message)
             store.dispatch(setLoading(false))
             throw error;
         }
@@ -23,7 +23,7 @@ export const AuthService = {
             return response.data;
         } catch (error) {
             console.log('Error making request:', error);
-            errorToast('Something Went Wrong')
+            // errorToast('Something Went Wrong')
             throw error;
         }
     },

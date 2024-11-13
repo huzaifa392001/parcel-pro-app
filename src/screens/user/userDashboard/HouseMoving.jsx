@@ -32,17 +32,17 @@ const HouseMoving = () => {
             <Text style={GlobalStyle.generalDescription}>After placing order, One of our Representatives will contact you for further details.</Text>
             <View style={GlobalStyle.formContainer}>
               <View style={GlobalStyle.inputCont}>
-                <Text style={GlobalStyle.inputLabel}>Pickup Location</Text>
+                <Text style={GlobalStyle.inputLabel}>Pickup Address</Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon icon={faLocationPin} size={generalFontSize} color={themeColor} />
-                  <TextInput placeholder='Pickup Location' placeholderTextColor={textColor} style={GlobalStyle.inputWithIconCont.input} />
+                  <TextInput placeholder='Pickup Address' placeholderTextColor={textColor} style={GlobalStyle.inputWithIconCont.input} />
                 </View>
               </View>
               <View style={GlobalStyle.inputCont}>
-                <Text style={GlobalStyle.inputLabel}>Dropoff Location</Text>
+                <Text style={GlobalStyle.inputLabel}>Dropoff Address</Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon icon={faLocationPin} size={generalFontSize} color={themeColor} />
-                  <TextInput placeholder='Dropoff Location' placeholderTextColor={textColor} style={GlobalStyle.inputWithIconCont.input} />
+                  <TextInput placeholder='Dropoff Address' placeholderTextColor={textColor} style={GlobalStyle.inputWithIconCont.input} />
                 </View>
               </View>
               <View style={GlobalStyle.inputCont}>
@@ -62,7 +62,7 @@ const HouseMoving = () => {
                 <Text style={GlobalStyle.inputLabel}>Other Item(s)</Text>
                 <TextInput placeholder='Item(s)' placeholderTextColor={textColor} style={[GlobalStyle.input, GlobalStyle.textarea]} multiline />
               </View>
-              <View style={GlobalStyle.inputCont}>
+              <View style={[GlobalStyle.inputCont, GlobalStyle.submitBtnCont]}>
                 <TouchableOpacity style={GlobalStyle.themeBtn}>
                   <Text style={GlobalStyle.themeBtnText}>Continue</Text>
                 </TouchableOpacity>

@@ -262,8 +262,9 @@ export const GlobalStyle = StyleSheet.create({
     },
     dummyPicturePreview: {
         width: windowWidth - 60,
-        height: windowWidth - 60,
+        height: 300,
         objectFit: 'contain',
+        resizeMode: "contain",
         backgroundColor: whiteColor,
         shadowColor: '#000',
         shadowOffset: { width: 3, height: 3 },
@@ -290,5 +291,18 @@ export const GlobalStyle = StyleSheet.create({
         padding: 10,
         width: (windowWidth / 2) - 20,
         alignItems: 'center'
+    },
+    submitBtnCont: {
+        marginTop: 20
+    },
+    pageHeading: {
+        color: textColor,
+        fontFamily: 'Axiforma-Bold',
+        fontSize: generalFontSize + 6,
+        marginBottom: 15,
+        paddingBottom: 15,
+        textAlign: 'center',
+        borderBottomColor: textColor,
+        borderBottomWidth: 1
     }
 });

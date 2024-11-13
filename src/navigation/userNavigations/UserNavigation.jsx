@@ -10,6 +10,7 @@ import Scooter from '../../screens/user/userDashboard/Scooter';
 import Truck from '../../screens/user/userDashboard/Truck';
 import HouseMoving from '../../screens/user/userDashboard/HouseMoving';
 import Step1 from '../../screens/user/Order/Step1';
+import Step2 from '../../screens/user/Order/Step2';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,7 +28,7 @@ const UserNavigation = () => {
             />
           ),
         })}
-        initialRouteName='scooter'
+        initialRouteName='home'
       >
         <Drawer.Screen
           name="home"
@@ -52,6 +53,10 @@ const UserNavigation = () => {
         <Drawer.Screen
           name="step1"
           component={Step1}
+        />
+        <Drawer.Screen
+          name="step2"
+          component={Step2}
         />
         {/* Add more screens if needed */}
       </Drawer.Navigator>

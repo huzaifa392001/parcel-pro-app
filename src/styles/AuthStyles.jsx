@@ -4,7 +4,7 @@ import { generalFontSize, secondaryColor, textColor, themeColor, whiteColor, win
 export const AuthStyles = StyleSheet.create({
     logoCont: {
         width: windowWidth - 40,
-        paddingTop: 30,
+        paddingVertical: 30,
         alignItems: 'center',
         justifyContent: 'center',
         marginHorizontal: 'auto'
