@@ -1,5 +1,5 @@
 import { store } from "../Redux/Store";
-import { login as loginAction, logout as logoutAction, updateUserProfile, setLoading, } from '../Redux/Store/Slices/Auth';
+import { login as loginAction, logout as logoutAction, setLoading, } from '../Redux/Store/Slices/Auth';
 
 
 export const AuthService = {

@@ -2,7 +2,6 @@ import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity,
 import React from 'react'
 import { GlobalStyle } from '../../../styles/Theme'
 import { AuthService } from '../../../services/AuthService'
-import SearchBar from '../../../components/SearchBar'
 import ActiveOrderCard from '../../../components/ActiveOrderCard'
 import OrdersList from '../../../components/OrdersList'
 import ServiceCard from '../../../components/ServiceCard'
@@ -37,10 +36,10 @@ const UserHome = () => {
                         <Text style={GlobalStyle.secHeading}>Active Delivery</Text>
                         <ActiveOrderCard />
                     </View>
-                    {/* <View style={GlobalStyle.section}>
+                    <View style={GlobalStyle.section}>
                         <Text style={GlobalStyle.secHeading}>Recent Orders</Text>
                         <OrdersList />
-                    </View> */}
+                    </View>
                     <View style={GlobalStyle.section}>
                         <TouchableOpacity onPress={logoutFunc} style={GlobalStyle.themeBtn}>
                             <Text style={GlobalStyle.themeBtnText}>Logout</Text>

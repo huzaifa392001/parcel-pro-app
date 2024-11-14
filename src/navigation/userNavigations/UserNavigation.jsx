@@ -1,7 +1,7 @@
 // navigation/UserNavigation.js
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import UserHeader from '../../components/UserHeader';
 import CustomDrawerContent from '../../components/CustomDrawerContent';
 import Notifications from '../../screens/user/Notifications';
@@ -11,15 +11,17 @@ import Truck from '../../screens/user/userDashboard/Truck';
 import HouseMoving from '../../screens/user/userDashboard/HouseMoving';
 import Step1 from '../../screens/user/Order/Step1';
 import Step2 from '../../screens/user/Order/Step2';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Sidebar from '../../components/Sidebar';
 
-const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 const UserNavigation = () => {
   return (
     <>
-      <Drawer.Navigator
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
-        screenOptions={({ navigation, route }) => ({
+      <Stack.Navigator
+        drawerContent={props => <CustomDrawerContent {...props} />}
+        screenOptions={({navigation, route}) => ({
           header: () => (
             <UserHeader
               title={route.name}
@@ -28,41 +30,21 @@ const UserNavigation = () => {
             />
           ),
         })}
-        initialRouteName='home'
-      >
-        <Drawer.Screen
-          name="home"
-          component={UserHome}
-        />
-        <Drawer.Screen
-          name="notification"
-          component={Notifications}
-        />
-        <Drawer.Screen
-          name="scooter"
-          component={Scooter}
-        />
-        <Drawer.Screen
-          name="truck"
-          component={Truck}
-        />
-        <Drawer.Screen
-          name="houseMoving"
-          component={HouseMoving}
-        />
-        <Drawer.Screen
-          name="step1"
-          component={Step1}
-        />
-        <Drawer.Screen
-          name="step2"
-          component={Step2}
-        />
+        initialRouteName="home">
+        <Stack.Screen name="home" component={UserHome} />
+        <Stack.Screen name="notification" component={Notifications} />
+        <Stack.Screen name="scooter" component={Scooter} />
+        <Stack.Screen name="truck" component={Truck} />
+        <Stack.Screen name="houseMoving" component={HouseMoving} />
+        <Stack.Screen name="step1" component={Step1} />
+        <Stack.Screen name="step2" component={Step2} />
         {/* Add more screens if needed */}
-      </Drawer.Navigator>
+      </Stack.Navigator>
+
+      <Sidebar />
     </>
-  )
-}
+  );
+};
 
 export default UserNavigation;
 
