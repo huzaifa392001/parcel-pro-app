@@ -60,7 +60,6 @@ export const GlobalStyle = StyleSheet.create({
     backgroundColor: themeColor,
     width: isIpad ? windowWidth / 2 - 40 : windowWidth - 40,
     paddingVertical: 16,
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     ...Platform.select({
@@ -87,9 +86,11 @@ export const GlobalStyle = StyleSheet.create({
     backgroundColor: 'transparent',
     width: isIpad ? windowWidth / 2 - 40 : windowWidth - 40,
     paddingVertical: 12,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: textColor,
+    justifyContent: 'space-between',
+    borderColor: themeColor,
+    paddingHorizontal: 10,
     borderWidth: 2,
     borderStyle: 'solid',
     ...Platform.select({
@@ -107,10 +108,16 @@ export const GlobalStyle = StyleSheet.create({
     borderRadius: 10,
   },
   altrThemeBtnText: {
-    fontFamily: 'Axiforma-Regular',
-    fontSize: generalFontSize + 2,
-    textTransform: 'uppercase',
-    color: textColor,
+    fontFamily: 'Axiforma-Medium',
+    fontSize: generalFontSize,
+    color: themeColor,
+    fontWeight: '600',
+  },
+  activeBtn: {
+    backgroundColor: themeColor,
+  },
+  activeBtnText: {
+    color: whiteColor,
   },
   themeBtn2: {
     backgroundColor: secondaryColor,
@@ -314,5 +321,14 @@ export const GlobalStyle = StyleSheet.create({
     position: 'absolute',
     top: 6,
     zIndex: 1,
+  },
+  floatingBtn: {
+    position: 'absolute',
+    bottom: 0,
+    left: 20,
+  },
+  floatingBtnPageContainer: {
+    position: 'relative',
+    paddingBottom: 80,
   },
 });

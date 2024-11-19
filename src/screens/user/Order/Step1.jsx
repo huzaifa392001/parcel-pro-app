@@ -76,7 +76,7 @@ const Step1 = ({navigation}) => {
     <SafeAreaView style={GlobalStyle.pageWrapper}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}
-        style={GlobalStyle.pageContainer}>
+        style={[GlobalStyle.pageContainer, GlobalStyle.floatingBtnPageContainer]}>
         <ScrollView>
           <View style={GlobalStyle.container}>
             <View style={GlobalStyle.pageHeadingCont}>
@@ -165,15 +165,15 @@ const Step1 = ({navigation}) => {
                 </View>
               </>
             )}
-            <View style={[GlobalStyle.inputCont, GlobalStyle.submitBtnCont]}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('step2')}
-                style={GlobalStyle.themeBtn}>
-                <Text style={GlobalStyle.themeBtnText}>Continue</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         </ScrollView>
+        <View style={[GlobalStyle.inputCont, GlobalStyle.submitBtnCont, GlobalStyle.floatingBtn]}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('step2')}
+            style={GlobalStyle.themeBtn}>
+            <Text style={GlobalStyle.themeBtnText}>Continue</Text>
+          </TouchableOpacity>
+        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

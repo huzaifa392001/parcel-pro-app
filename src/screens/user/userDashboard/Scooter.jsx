@@ -52,7 +52,10 @@ const Scooter = ({navigation}) => {
     <SafeAreaView style={GlobalStyle.pageWrapper}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}
-        style={GlobalStyle.pageContainer}>
+        style={[
+          GlobalStyle.pageContainer,
+          GlobalStyle.floatingBtnPageContainer,
+        ]}>
         <ScrollView>
           <QuickNav />
           <View style={[GlobalStyle.container, {marginTop: 20}]}>
@@ -155,17 +158,22 @@ const Scooter = ({navigation}) => {
                   />
                 )}
               </View>
-              <View style={[GlobalStyle.inputCont, GlobalStyle.submitBtnCont]}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('step1')}
-                  style={GlobalStyle.themeBtn}>
-                  <Text style={GlobalStyle.themeBtnText}>Continue</Text>
-                </TouchableOpacity>
-              </View>
             </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
+      <View
+        style={[
+          GlobalStyle.inputCont,
+          GlobalStyle.submitBtnCont,
+          GlobalStyle.floatingBtn,
+        ]}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('step1')}
+          style={GlobalStyle.themeBtn}>
+          <Text style={GlobalStyle.themeBtnText}>Continue</Text>
+        </TouchableOpacity>
+      </View>
       <DatePicker
         modal
         open={open}
