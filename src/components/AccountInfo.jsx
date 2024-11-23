@@ -1,57 +1,62 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
+import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
 import Modal from 'react-native-modal';
-import {bgColor, generalFontSize, GlobalStyle, isIpad, windowWidth} from '../styles/Theme';
+import { bgColor, blackColor, generalFontSize, GlobalStyle, isIpad, textColor, windowWidth } from '../styles/Theme';
 
-const AccountInfo = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
-
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
-
+const AccountInfo = ({ modalIsVisible, onClose, title, canHide }) => {
   return (
-    <View style={{flex: 1}}>
-      <Modal
-        isVisible={isModalVisible}
-        animationOutTiming={500}
-        hasBackdrop={true}
-        onBackdropPress={null} // Enable or disable based on canHide
-        onSwipeComplete={null} // Enable or disable based on canHide
-        swipeDirection="down"
-        style={styles.modal}
-        avoidKeyboard={true}>
-        <View style={styles.modalContent}>
-          <Text
-            style={[GlobalStyle.mainTitle, {fontSize: generalFontSize + 4}]}>
-            {title}
-          </Text>
+    <Modal
+      isVisible={modalIsVisible}
+      animationOutTiming={500}
+      hasBackdrop={true}
+      onBackdropPress={() => {
+        if (canHide) onClose(); // Trigger onClose if closing is allowed
+      }}
+      onSwipeComplete={() => {
+        if (canHide) onClose(); // Trigger onClose if closing is allowed
+      }}
+      swipeDirection="down"
+      style={styles.modal}
+      avoidKeyboard={true}
+    >
+      <View style={styles.modalContent}>
+        <Text style={[GlobalStyle.mainTitle, { fontSize: generalFontSize + 4, marginBottom: 20, fontFamily: 'Axiforma-Bold' }]}>
+          Business's Account Info
+        </Text>
+        <View style={styles.row}>
+          <Text style={[styles.text, { fontWeight: '700', fontFamily: 'Axiforma-Bold' }]}>Account Holder Name: </Text>
+          <Text style={styles.text}>Huzaifa Iqbal</Text>
         </View>
-      </Modal>
-    </View>
+        <View style={styles.row}>
+          <Text style={[styles.text, { fontWeight: '700', fontFamily: 'Axiforma-Bold' }]}>Bank: </Text>
+          <Text style={styles.text}>ABC Local Bank</Text>
+        </View>
+        <View style={styles.row}>
+          <Text style={[styles.text, { fontWeight: '700', fontFamily: 'Axiforma-Bold' }]}>Account Number: </Text>
+          <Text style={styles.text}>0000 0000 0000 0000</Text>
+        </View>
+        <TouchableOpacity
+          onPress={() => {
+            if (canHide) onClose(); // Trigger onClose if closing is allowed
+          }}
+          style={[GlobalStyle.themeBtn, { width: "100%", marginTop: 10 }]}
+        >
+          <Text style={GlobalStyle.themeBtnText}>Confirm</Text>
+        </TouchableOpacity>
+      </View>
+    </Modal>
   );
 };
 
 export default AccountInfo;
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
-    ...Platform.select({
-      ios: {
-        paddingBottom: 30,
-      },
-      android: {
-        paddingBottom: 60,
-      },
-    }),
-  },
   modal: {
-    margin: 0,
+    marginHorizontal: 10
   },
   modalContent: {
     backgroundColor: bgColor,
-    paddingHorizontal: 0,
+    paddingHorizontal: 20,
     width: '100%',
     minHeight: windowWidth / 2,
     paddingVertical: 20,
@@ -59,4 +64,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 'auto',
     maxWidth: isIpad ? windowWidth / 2 : '',
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 10
+  },
+  text: {
+    color: textColor,
+    fontSize: generalFontSize,
+    fontFamily: 'Axiforma-Regular',
+
+  }
 });

@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useRef, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {setSidebar} from '../Redux/Store/Slices/General';
+import React, { useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSidebar } from '../Redux/Store/Slices/General';
 import {
   generalFontSize,
   textColor,
@@ -18,7 +18,8 @@ import {
   windowHeight,
   windowWidth,
 } from '../styles/Theme';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { AuthService } from '../services/AuthService';
 
 const Sidebar = () => {
   const isActive = useSelector(state => state.general.isActive) || false;
@@ -44,12 +45,16 @@ const Sidebar = () => {
   };
 
   const listItems = [
-    {name: 'home', url: 'home'},
-    {name: 'Orders', url: 'scooter'},
-    {name: 'Address', url: 'scooter'},
-    {name: 'Profile', url: 'houseMoving'},
-    {name: 'Settings', url: 'houseMoving'},
+    { name: 'home', url: 'home' },
+    { name: 'Orders', url: 'scooter' },
+    { name: 'Address', url: 'scooter' },
+    { name: 'Profile', url: 'houseMoving' },
+    { name: 'Settings', url: 'houseMoving' },
   ];
+
+  const handleLogout = () => {
+    AuthService.logout()
+  }
 
   return (
     <>
@@ -58,7 +63,7 @@ const Sidebar = () => {
       )}
 
       <Animated.View
-        style={[styles.sidebar, {transform: [{translateX: sidebarAnim}]}]}>
+        style={[styles.sidebar, { transform: [{ translateX: sidebarAnim }] }]}>
         <View style={styles.profileCont}>
           <View style={styles.userImgCont}>
             <Image
@@ -71,7 +76,7 @@ const Sidebar = () => {
         <FlatList
           data={listItems}
           contentContainerStyle={styles.listCont}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => navigateToUrl(item?.url)}
               style={styles.linkBtn}>
@@ -80,7 +85,7 @@ const Sidebar = () => {
           )}
           keyExtractor={(item, index) => index.toString()}
         />
-        <TouchableOpacity style={[styles.linkBtn, styles.logoutBtn]}>
+        <TouchableOpacity onPress={handleLogout} style={[styles.linkBtn, styles.logoutBtn]}>
           <Text style={[styles.linkBtnText, styles.logoutBtnText]}>Logout</Text>
         </TouchableOpacity>
       </Animated.View>
@@ -106,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: whiteColor,
     overflow: 'hidden',
     shadowColor: '#0005',
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowRadius: 10,
     elevation: 5,
     height: '100%',
@@ -123,7 +128,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     overflow: 'hidden',
     shadowColor: '#000',
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowRadius: 10,
     elevation: 10,
     alignSelf: 'center',
@@ -145,7 +150,7 @@ const styles = StyleSheet.create({
   linkBtn: {
     backgroundColor: whiteColor,
     shadowColor: themeColor,
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowRadius: 10,
     elevation: 10,
     borderRadius: 20,

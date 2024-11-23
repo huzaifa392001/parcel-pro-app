@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isActive: false
+    isActive: false,
+    isOnlineTransfer: false,
 };
 
 export const GeneralSlice = createSlice({
@@ -11,9 +12,12 @@ export const GeneralSlice = createSlice({
         setSidebar: (state, action) => {
             state.isActive = action.payload;
         },
+        SET_ONLINE_TRANSFER_STATE: (state, action) => {
+            state.isOnlineTransfer = action.payload;
+        },
     }
 })
 
 // Export the generated action creators and reducer
-export const { setSidebar } = GeneralSlice.actions;
+export const { setSidebar, SET_ONLINE_TRANSFER_STATE } = GeneralSlice.actions;
 export default GeneralSlice.reducer;

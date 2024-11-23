@@ -13,6 +13,8 @@ import Step1 from '../../screens/user/Order/Step1';
 import Step2 from '../../screens/user/Order/Step2';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Sidebar from '../../components/Sidebar';
+import Step3 from '../../screens/user/Order/Step3';
+import ThankYou from '../../screens/user/Order/ThankYou';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +32,7 @@ const UserNavigation = () => {
             />
           ),
         })}
-        initialRouteName="home">
+        initialRouteName="step3">
         <Stack.Screen name="home" component={UserHome} />
         <Stack.Screen name="notification" component={Notifications} />
         <Stack.Screen name="scooter" component={Scooter} />
@@ -38,6 +40,8 @@ const UserNavigation = () => {
         <Stack.Screen name="houseMoving" component={HouseMoving} />
         <Stack.Screen name="step1" component={Step1} />
         <Stack.Screen name="step2" component={Step2} />
+        <Stack.Screen name="step3" component={Step3} />
+        <Stack.Screen name="thankyou" component={ThankYou} />
         {/* Add more screens if needed */}
       </Stack.Navigator>
 

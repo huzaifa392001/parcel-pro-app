@@ -1,4 +1,4 @@
-import {StyleSheet, Appearance, Platform, Dimensions} from 'react-native';
+import { StyleSheet, Appearance, Platform, Dimensions } from 'react-native';
 
 const colorScheme = Appearance.getColorScheme();
 export const isDarkMode = colorScheme === 'dark';
@@ -65,7 +65,7 @@ export const GlobalStyle = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: '#fff5',
-        shadowOffset: {width: 0, height: 3},
+        shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.4,
         shadowRadius: 3,
       },
@@ -96,7 +96,7 @@ export const GlobalStyle = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: blackColor,
-        shadowOffset: {width: 0, height: 3},
+        shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.2,
         shadowRadius: 3,
       },
@@ -129,7 +129,7 @@ export const GlobalStyle = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: '#fff5',
-        shadowOffset: {width: 0, height: 3},
+        shadowOffset: { width: 0, height: 3 },
         shadowOpacity: 0.4,
         shadowRadius: 3,
       },
@@ -179,6 +179,7 @@ export const GlobalStyle = StyleSheet.create({
     position: 'relative',
     flex: 1,
     backgroundColor: bgColor,
+    height: '100%'
   },
   pageContainer: {
     flex: 1,
@@ -276,7 +277,7 @@ export const GlobalStyle = StyleSheet.create({
     resizeMode: 'contain',
     backgroundColor: whiteColor,
     shadowColor: '#000',
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
     elevation: 10,
