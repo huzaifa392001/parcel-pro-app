@@ -63,6 +63,13 @@ const Scooter = ({navigation}) => {
             <View style={GlobalStyle.formContainer}>
               <View style={GlobalStyle.inputCont}>
                 <Text style={GlobalStyle.inputLabel}>Pickup Address</Text>
+                <Text
+                  style={[
+                    GlobalStyle.inputLabel,
+                    {fontSize: generalFontSize - 4},
+                  ]}>
+                  * Share location using Google Map for precise location. *
+                </Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon
                     icon={faLocationPin}
@@ -78,6 +85,13 @@ const Scooter = ({navigation}) => {
               </View>
               <View style={GlobalStyle.inputCont}>
                 <Text style={GlobalStyle.inputLabel}>Dropoff Address</Text>
+                <Text
+                  style={[
+                    GlobalStyle.inputLabel,
+                    {fontSize: generalFontSize - 4},
+                  ]}>
+                  * Share location using Google Map for precise location. *
+                </Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon
                     icon={faLocationPin}

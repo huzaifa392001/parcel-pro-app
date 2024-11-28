@@ -1,22 +1,24 @@
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { generalFontSize, GlobalStyle, textColor, themeColor } from '../../styles/Theme'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import NotiBox from '../../components/NotiBox'
 
 const Notifications = ({ navigation }) => {
     return (
-        <SafeAreaView>
-            <TouchableOpacity
-                onPress={() => navigation.goBack()}
-            >
-                <FontAwesomeIcon
-                    icon={faChevronLeft}
-                    size={generalFontSize * 2}
-                    color={themeColor}
+        <SafeAreaView style={GlobalStyle.pageWrapper}>
+            <View style={[GlobalStyle.container, { paddingBottom: 20 }]}>
+                <View style={GlobalStyle.pageHeadingCont}>
+                    <Text style={GlobalStyle.pageHeading}>Notifications</Text>
+                </View>
+                <FlatList
+                    contentContainerStyle={{ gap: 20 }}
+                    showsVerticalScrollIndicator={false}
+                    data={[1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5]}
+                    renderItem={({ item, index }) => (
+                        <NotiBox key={index} data={item} />
+                    )}
                 />
-            </TouchableOpacity>
-            <Text style={GlobalStyle.secHeading}>Notification</Text>
+            </View>
         </SafeAreaView>
     )
 }

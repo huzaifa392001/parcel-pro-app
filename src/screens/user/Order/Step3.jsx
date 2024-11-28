@@ -12,16 +12,15 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import { generalFontSize, GlobalStyle, textColor } from '../../../styles/Theme';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 const Step3 = ({ navigation }) => {
   const isOnlineTransfer = useSelector((state) => state.general.isOnlineTransfer)
   const [imageUri, setImageUri] = useState(null);
 
-  const openImagePicker = () => {
-    ImagePicker.openPicker({
+  const openImagePicker = ({navigation}) => {
+    ImageCropPicker.openPicker({
       cropping: true,
     })
       .then(image => {
@@ -42,16 +41,6 @@ const Step3 = ({ navigation }) => {
         <ScrollView>
           <View style={GlobalStyle.container}>
             <View style={GlobalStyle.pageHeadingCont}>
-              <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={GlobalStyle.pageHeadingBackBtn}
-              >
-                <FontAwesomeIcon
-                  icon={faChevronLeft}
-                  color={textColor}
-                  size={generalFontSize + 4}
-                />
-              </TouchableOpacity>
               <Text style={GlobalStyle.pageHeading}>Payment Details</Text>
             </View>
             {isOnlineTransfer ? (

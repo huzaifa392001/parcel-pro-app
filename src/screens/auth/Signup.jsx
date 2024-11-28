@@ -101,7 +101,7 @@ const Signup = ({ navigation }) => {
                                     />
                                 </Animated.View>
 
-                                <TouchableOpacity onPress={signupFunc} style={GlobalStyle.themeBtn2}>
+                                <TouchableOpacity onPress={() => AuthService.login()} style={GlobalStyle.themeBtn2}>
                                     <Text style={GlobalStyle.themeBtn2Text}>
                                         Continue
                                     </Text>

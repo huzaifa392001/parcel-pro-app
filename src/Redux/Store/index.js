@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import authReducer from "./Slices/Auth/index";
 import generalReducer from "./Slices/General/index"
+import orderReducer from "./Slices/Order/index"
 
 const persistConfig = {
   key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  general: generalReducer
+  general: generalReducer,
+  order: orderReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

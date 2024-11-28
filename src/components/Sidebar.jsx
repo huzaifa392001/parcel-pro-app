@@ -49,7 +49,7 @@ const Sidebar = () => {
     { name: 'Orders', url: 'scooter' },
     { name: 'Address', url: 'scooter' },
     { name: 'Profile', url: 'houseMoving' },
-    { name: 'Settings', url: 'houseMoving' },
+    { name: 'Settings', url: 'settings' },
   ];
 
   const handleLogout = () => {
@@ -149,14 +149,14 @@ const styles = StyleSheet.create({
   },
   linkBtn: {
     backgroundColor: whiteColor,
-    shadowColor: themeColor,
+    shadowColor: "#000",
     shadowOffset: { width: 3, height: 3 },
     shadowRadius: 10,
     elevation: 10,
-    borderRadius: 20,
-    paddingVertical: 5,
+    borderRadius: 10,
+    paddingVertical: 10,
     paddingHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 5,
   },
   linkBtnText: {
     fontFamily: 'Axiforma-Medium',

@@ -1,11 +1,7 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {
-  faBars,
-  faBell,
-  faMapMarkerAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faBell, faMapMarkerAlt, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import {
   bgColor,
   generalFontSize,
@@ -13,30 +9,49 @@ import {
   themeColor,
   whiteColor,
 } from '../styles/Theme';
-import {store} from '../Redux/Store';
-import {setSidebar} from '../Redux/Store/Slices/General';
+import { store } from '../Redux/Store';
+import { setSidebar } from '../Redux/Store/Slices/General';
+import { useRoute } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
-const UserHeader = ({navigation}) => {
+const UserHeader = ({ navigation }) => {
+  const [sidebarStatus] = useState(useSelector((state) => state.general.isActive))
+  const route = useRoute();
   const toggleDrawer = () => {
-    store.dispatch(setSidebar(true));
+    if(sidebarStatus){
+      store.dispatch(setSidebar(false))
+    }
+    else{
+      store.dispatch(setSidebar(true))
+    }
   };
+
+  const isHomeRoute = route.name === 'home' || route.name === 'thankyou'; // Check if the current route is "home"
+
   return (
     <>
       <View style={styles.headerCont}>
-        {/* Toggle Button for Drawer */}
-        {/* <TouchableOpacity style={styles.menuBtn}>
-                <FontAwesomeIcon icon={faBars} size={generalFontSize + 4} color={themeColor} />
-            </TouchableOpacity> */}
-
         <View style={styles.userCont}>
-          <TouchableOpacity
-            onPress={() => toggleDrawer()}
-            style={styles.userImgCont}>
-            <Image
-              source={require('../assets/images/user.png')}
-              style={styles.userImg}
-            />
-          </TouchableOpacity>
+          {isHomeRoute ? (
+            <TouchableOpacity
+              onPress={() => toggleDrawer()}
+              style={styles.userImgCont}>
+              <Image
+                source={require('../assets/images/user.png')}
+                style={styles.userImg}
+              />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={styles.backBtn}>
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                color={themeColor}
+                size={generalFontSize + 4}
+              />
+            </TouchableOpacity>
+          )}
           <View>
             <Text style={styles.userName}>Huzaifa Iqbal</Text>
             <TouchableOpacity style={styles.locationBtn}>
@@ -75,20 +90,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  menuBtn: {
-    backgroundColor: whiteColor,
-    height: 50,
-    width: 50,
-    borderRadius: 100,
-    shadowColor: '#000',
-    shadowOffset: {width: 3, height: 3},
-    shadowOpacity: 0.8,
-    shadowRadius: 3,
-    elevation: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 10,
-  },
   userCont: {
     flexDirection: 'row',
     gap: 10,
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     position: 'relative',
     shadowColor: '#000',
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
     elevation: 10,
@@ -112,6 +113,19 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: '#f6f6f6',
+  },
+  backBtn: {
+    height: 50,
+    width: 50,
+    borderRadius: 100,
+    backgroundColor: whiteColor,
+    shadowColor: '#000',
+    shadowOffset: { width: 3, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 3,
+    elevation: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   userName: {
     fontFamily: 'Axiforma-Bold',
@@ -133,7 +147,7 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 100,
     shadowColor: '#000',
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.8,
     shadowRadius: 3,
     elevation: 10,

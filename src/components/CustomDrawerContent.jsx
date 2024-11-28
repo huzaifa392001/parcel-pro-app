@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faSignOutAlt, faCog, faUser, faHome, faTruckFast } from '@fortawesome/free-solid-svg-icons';
-import { themeColor, textColor, whiteColor, generalFontSize, secondaryColor } from '../styles/Theme';
+import { themeColor, textColor, whiteColor, generalFontSize, secondaryColor, GlobalStyle } from '../styles/Theme';
 import { useNavigation } from '@react-navigation/native';
 import { AuthService } from '../services/AuthService';
 
@@ -13,7 +13,15 @@ const CustomDrawerContent = (props) => {
             const response = await AuthService.logout();
             // navigation.replace("dashboard")
         } catch (error) {
-            console.error('Login failed:', error);
+            console.error('Logout failed:', error);
+        }
+    }
+    const vendorFunc = async () => {
+        try {
+            // const res = await AuthService.vendor();
+        }
+        catch (err) {
+            console.error('Logout failed:', err);
         }
     }
     const navigation = useNavigation()
@@ -62,6 +70,10 @@ const CustomDrawerContent = (props) => {
                 />
             </View>
 
+            <TouchableOpacity style={GlobalStyle.themeBtn} onPress={() => vendorFunc()}>
+                <FontAwesomeIcon icon={faSignOutAlt} color={themeColor} size={20} />
+                <Text style={GlobalStyle.themeBtnText}>Continue as Vendor</Text>
+            </TouchableOpacity>
             {/* Logout Button */}
             <TouchableOpacity style={styles.logoutButton} onPress={() => logoutFunc()}>
                 <FontAwesomeIcon icon={faSignOutAlt} color={themeColor} size={20} />

@@ -1,13 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { resetCart } from '../Cart';
 
 // Initial state should be synchronous
 const initialState = {
-    isAuthenticated: false,
-    data: null,
-    token: '',
     loading: false,
+    isAuthenticated: false,
+    isVendor: false,
 };
 
 // Slice definition
@@ -15,33 +12,17 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setLoading: (state, action) => {
+        SET_AUTH_LOADING: (state, action) => {
             state.loading = action.payload;
         },
-        login: (state, action) => {
-            state.isAuthenticated = true;
-            // if (action.payload?.data?.token) {
-            //     state.isAuthenticated = true;
-            //     state.token = action.payload?.data?.token;
-            //     state.data = action.payload?.data?.detail;
-
-            //     // AsyncStorage operations should be handled outside of reducers
-            //     AsyncStorage.setItem('token', action.payload?.data?.token);
-            //     AsyncStorage.setItem('auth-data', JSON.stringify(action.payload?.data?.detail));
-            // }
+        SET_LOGIN: (state, action) => {
+            state.isAuthenticated = action.payload;
         },
-        logout: (state, action) => {
-            // state.data = null;
-            // state.token = '';
-            state.isAuthenticated = false;
-            // AsyncStorage operations should be handled outside of reducers
-            // AsyncStorage.clear();
-            // action.payload.dispatch(resetCart());
+        SET_LOGOUT: (state, action) => {
+            state.isAuthenticated = action.payload;
         },
-        updateUserProfile: (state, action) => {
-            state.data = action.payload?.data?.user;
-            // AsyncStorage operations should be handled outside of reducers
-            // AsyncStorage.setItem('auth-data', JSON.stringify(action.payload?.data?.user));
+        SET_VENDOR: (state, action) => {
+            state.isVendor = action.payload;
         },
     }
 });
@@ -56,5 +37,5 @@ export const initializeAuth = () => async (dispatch) => {
 };
 
 // Export the generated action creators and reducer
-export const { setLoading, login, logout, updateUserProfile } = authSlice.actions;
+export const { SET_AUTH_LOADING, SET_LOGIN, SET_LOGOUT, SET_VENDOR } = authSlice.actions;
 export default authSlice.reducer;

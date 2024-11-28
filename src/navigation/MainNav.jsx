@@ -12,7 +12,10 @@ const MainNav = () => {
             {
                 isAuthenticated ?
                     (
-                        <UserNavigation />
+                        <>
+                            <UserNavigation />
+
+                        </>
                     )
                     :
                     (

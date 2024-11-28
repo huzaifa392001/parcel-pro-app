@@ -19,7 +19,6 @@ import {
 } from '../../../styles/Theme';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
-  faChevronLeft,
   faCreditCard,
   faMoneyBill,
 } from '@fortawesome/free-solid-svg-icons';
@@ -63,16 +62,6 @@ const Step2 = ({ navigation }) => {
         <ScrollView>
           <View style={GlobalStyle.container}>
             <View style={GlobalStyle.pageHeadingCont}>
-              <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={GlobalStyle.pageHeadingBackBtn}
-              >
-                <FontAwesomeIcon
-                  icon={faChevronLeft}
-                  color={textColor}
-                  size={generalFontSize + 4}
-                />
-              </TouchableOpacity>
               <Text style={GlobalStyle.pageHeading}>Recipient's Details</Text>
             </View>
             <View style={GlobalStyle.formContainer}>

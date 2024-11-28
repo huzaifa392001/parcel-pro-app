@@ -24,7 +24,7 @@ export const GlobalStyle = StyleSheet.create({
     //     ios: {
     //         paddingBottom: 30,
     //     },
-    //     android: {
+    //     android: { 
     //         paddingBottom: 60,
     //     },
     // }),

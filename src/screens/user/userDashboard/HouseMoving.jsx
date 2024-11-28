@@ -21,7 +21,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faLocationPin} from '@fortawesome/free-solid-svg-icons';
 import ItemQuantitySelector from '../../../components/ItemQuantitySelector';
 
-const HouseMoving = () => {
+const HouseMoving = ({navigation}) => {
   const items = [
     'Bed(s)',
     'Bedside Table(s)',
@@ -62,6 +62,13 @@ const HouseMoving = () => {
             <View style={GlobalStyle.formContainer}>
               <View style={GlobalStyle.inputCont}>
                 <Text style={GlobalStyle.inputLabel}>Pickup Address</Text>
+                <Text
+                  style={[
+                    GlobalStyle.inputLabel,
+                    { fontSize: generalFontSize - 4 },
+                  ]}>
+                  * Share location using Google Map for precise location. *
+                </Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon
                     icon={faLocationPin}
@@ -77,6 +84,13 @@ const HouseMoving = () => {
               </View>
               <View style={GlobalStyle.inputCont}>
                 <Text style={GlobalStyle.inputLabel}>Dropoff Address</Text>
+                <Text
+                  style={[
+                    GlobalStyle.inputLabel,
+                    { fontSize: generalFontSize - 4 },
+                  ]}>
+                  * Share location using Google Map for precise location. *
+                </Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon
                     icon={faLocationPin}

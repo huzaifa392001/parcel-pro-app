@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import {
   bgColor,
   generalFontSize,
@@ -18,8 +18,6 @@ import {
 } from '../../../styles/Theme';
 import ImagePicker from 'react-native-image-crop-picker';
 import SizeBox from '../../../components/SizeBox';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faChevronLeft} from '@fortawesome/free-solid-svg-icons';
 
 const Step1 = ({navigation}) => {
   const sizes = [
@@ -80,15 +78,6 @@ const Step1 = ({navigation}) => {
         <ScrollView>
           <View style={GlobalStyle.container}>
             <View style={GlobalStyle.pageHeadingCont}>
-              <TouchableOpacity
-                onPress={() => navigation.goBack()}
-                style={GlobalStyle.pageHeadingBackBtn}>
-                <FontAwesomeIcon
-                  icon={faChevronLeft}
-                  color={textColor}
-                  size={generalFontSize + 4}
-                />
-              </TouchableOpacity>
               <Text style={GlobalStyle.pageHeading}>Order Size</Text>
             </View>
             <View style={GlobalStyle.inputCont}>
