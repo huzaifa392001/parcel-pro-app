@@ -37,5 +37,18 @@ export const AuthService = {
         } finally {
             store.dispatch(SET_AUTH_LOADING(false));
         }
+    },
+
+    delete: async () => {
+        store.dispatch(SET_AUTH_LOADING(true));
+        try {
+            // Simulate vendor action (replace with actual API call)
+            store.dispatch(SET_LOGOUT(false));
+        } catch (err) {
+            console.error('Error making request:', err);
+            throw err;
+        } finally {
+            store.dispatch(SET_AUTH_LOADING(false));
+        }
     }
 }

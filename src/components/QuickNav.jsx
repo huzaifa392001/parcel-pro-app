@@ -33,7 +33,7 @@ const QuickNav = () => {
                 <Text style={styles.btnText}>Truck</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity
+            {/* <TouchableOpacity
                 style={styles.btn}
                 onPress={() => navigation.navigate('houseMoving')}
             >
@@ -41,7 +41,7 @@ const QuickNav = () => {
                     <FontAwesomeIcon icon={faTruckFast} color={whiteColor} size={generalFontSize * 2} />
                 </View>
                 <Text style={styles.btnText}>Movers</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     );
 }

@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   generalFontSize,
   GlobalStyle,
@@ -16,8 +16,8 @@ import {
   themeColor,
 } from '../../../styles/Theme';
 import QuickNav from '../../../components/QuickNav';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faClock, faLocationPin} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faClock, faLocationPin } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from 'react-native-date-picker';
 
 // Import utility functions
@@ -27,7 +27,7 @@ import {
   isValidTime,
 } from '../../../utils/Utils';
 
-const Scooter = ({navigation}) => {
+const Scooter = ({ navigation }) => {
   const [date, setDate] = useState(null);
   const [open, setOpen] = useState(false);
   const [otherDescription, setOtherDescription] = useState();
@@ -58,7 +58,7 @@ const Scooter = ({navigation}) => {
         ]}>
         <ScrollView>
           <QuickNav />
-          <View style={[GlobalStyle.container, {marginTop: 20}]}>
+          <View style={[GlobalStyle.container, { marginTop: 20 }]}>
             <Text style={GlobalStyle.secHeading}>Place an Order</Text>
             <View style={GlobalStyle.formContainer}>
               <View style={GlobalStyle.inputCont}>
@@ -66,7 +66,7 @@ const Scooter = ({navigation}) => {
                 <Text
                   style={[
                     GlobalStyle.inputLabel,
-                    {fontSize: generalFontSize - 4},
+                    { fontSize: generalFontSize - 4 },
                   ]}>
                   * Share location using Google Map for precise location. *
                 </Text>
@@ -88,9 +88,8 @@ const Scooter = ({navigation}) => {
                 <Text
                   style={[
                     GlobalStyle.inputLabel,
-                    {fontSize: generalFontSize - 4},
+                    { fontSize: generalFontSize - 4 },
                   ]}>
-                  * Share location using Google Map for precise location. *
                 </Text>
                 <View style={GlobalStyle.inputWithIconCont}>
                   <FontAwesomeIcon
@@ -118,7 +117,7 @@ const Scooter = ({navigation}) => {
                   <View
                     style={[
                       GlobalStyle.inputWithIconCont.input,
-                      {paddingLeft: 7},
+                      { paddingLeft: 7 },
                     ]}>
                     <Text
                       style={{
@@ -166,7 +165,7 @@ const Scooter = ({navigation}) => {
                     style={[
                       GlobalStyle.input,
                       GlobalStyle.textarea,
-                      {marginTop: 10},
+                      { marginTop: 10 },
                     ]}
                     multiline
                   />

@@ -15,6 +15,8 @@ import Sidebar from '../../components/Sidebar';
 import Step3 from '../../screens/user/Order/Step3';
 import ThankYou from '../../screens/user/Order/ThankYou';
 import Settings from '../../screens/user/Settings';
+import AllOrders from '../../screens/user/Order/AllOrders';
+import Profile from '../../screens/user/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +45,8 @@ const UserNavigation = () => {
         <Stack.Screen name="step3" component={Step3} />
         <Stack.Screen name="thankyou" component={ThankYou} />
         <Stack.Screen name="settings" component={Settings} />
+        <Stack.Screen name="orders" component={AllOrders} />
+        <Stack.Screen name="profile" component={Profile} />
         {/* Add more screens if needed */}
       </Stack.Navigator>
 

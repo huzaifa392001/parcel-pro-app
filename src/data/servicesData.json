@@ -8,10 +8,5 @@
         "id": "2",
         "service": "truck",
         "link": "truck"
-    },
-    {
-        "id": "3",
-        "service": "house moving",
-        "link": "houseMoving"
     }
 ]

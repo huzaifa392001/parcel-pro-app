@@ -1,14 +1,15 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { store } from '../../Redux/Store';
 import { SET_FCM_TOKEN, SET_NOTIFICATION_STATUS } from '../../Redux/Store/Slices/General';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faBell, faBox, faCheckCircle, faMotorcycle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faBox, faCheckCircle, faMotorcycle, faTrash, faUser } from '@fortawesome/free-solid-svg-icons';
 import { generalFontSize, GlobalStyle, textColor, themeColor, whiteColor } from '../../styles/Theme';
 import { handleNotificationPermission } from '../../utils/Utils';
+import { AuthService } from '../../services/AuthService';
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
     const notiStatus = useSelector((state) => state.general.isNotificationActive);
 
     const handleNotificationStatus = async () => {
@@ -23,6 +24,15 @@ const Settings = () => {
         }
     };
 
+    const handleDelete = async () => {
+        try {
+            await AuthService.delete()
+        }
+        catch (e) {
+            Alert.alert(`Error Deleting Profile. ${e}`)
+        }
+    }
+
     return (
         <SafeAreaView style={GlobalStyle.pageWrapper}>
             <ScrollView>
@@ -31,11 +41,11 @@ const Settings = () => {
                         <Text style={GlobalStyle.pageHeading}>Order Size</Text>
                     </View>
                     <View style={styles.menu}>
-                        <TouchableOpacity style={styles.menuItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('profile')} style={styles.menuItem}>
                             <FontAwesomeIcon icon={faUser} size={generalFontSize + 4} color={themeColor} />
                             <Text style={styles.menuText}>Profile</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.menuItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('orders')} style={styles.menuItem}>
                             <FontAwesomeIcon icon={faBox} size={generalFontSize + 4} color={themeColor} />
                             <Text style={styles.menuText}>Orders</Text>
                         </TouchableOpacity>
@@ -61,6 +71,10 @@ const Settings = () => {
                         <TouchableOpacity style={styles.menuItem}>
                             <FontAwesomeIcon icon={faMotorcycle} size={generalFontSize + 4} color={themeColor} />
                             <Text style={styles.menuText}>Become A Vendor</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleDelete()} style={[styles.menuItem, styles.dltBtn]}>
+                            <FontAwesomeIcon icon={faTrash} size={generalFontSize + 4} color={whiteColor} />
+                            <Text style={[styles.menuText, styles.dltBtnText]}>Delete Your Account</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -99,4 +113,10 @@ const styles = StyleSheet.create({
     notiItem: {
         backgroundColor: themeColor,
     },
+    dltBtn: {
+        backgroundColor: 'red'
+    },
+    dltBtnText: {
+        color: whiteColor
+    }
 });

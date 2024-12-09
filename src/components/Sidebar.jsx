@@ -48,7 +48,7 @@ const Sidebar = () => {
     { name: 'home', url: 'home' },
     { name: 'Orders', url: 'scooter' },
     { name: 'Address', url: 'scooter' },
-    { name: 'Profile', url: 'houseMoving' },
+    { name: 'Profile', url: 'profile' },
     { name: 'Settings', url: 'settings' },
   ];
 
