@@ -6,7 +6,7 @@ import generalReducer from "./Slices/General/index"
 import orderReducer from "./Slices/Order/index"
 
 const persistConfig = {
-  key: 'root',
+  key: 'parcelProConnect-mobileApp',
   storage: AsyncStorage,
 };
 

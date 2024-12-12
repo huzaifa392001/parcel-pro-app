@@ -29,11 +29,13 @@ const OrderCard = (props) => {
                     {props?.status ?? 'Waiting'}
                 </Text>
             </View>
-            <FontAwesomeIcon
-                icon={faChevronRight}
-                size={generalFontSize}
-                color={themeColor}
-            />
+            {!props?.noIcon && (
+                <FontAwesomeIcon
+                    icon={faChevronRight}
+                    size={generalFontSize}
+                    color={themeColor}
+                />
+            )}
         </TouchableOpacity>
     )
 }

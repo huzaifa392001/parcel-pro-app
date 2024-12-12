@@ -18,10 +18,10 @@ const UserHeader = ({ navigation }) => {
   const [sidebarStatus] = useState(useSelector((state) => state.general.isActive))
   const route = useRoute();
   const toggleDrawer = () => {
-    if(sidebarStatus){
+    if (sidebarStatus) {
       store.dispatch(setSidebar(false))
     }
-    else{
+    else {
       store.dispatch(setSidebar(true))
     }
   };
@@ -53,15 +53,16 @@ const UserHeader = ({ navigation }) => {
             </TouchableOpacity>
           )}
           <View>
+            <Text style={styles.welcome}>Welcome,</Text>
             <Text style={styles.userName}>Huzaifa Iqbal</Text>
-            <TouchableOpacity style={styles.locationBtn}>
+            {/* <TouchableOpacity style={styles.locationBtn}>
               <FontAwesomeIcon
                 icon={faMapMarkerAlt}
                 color={themeColor}
                 size={generalFontSize}
               />
               <Text style={styles.locationBtnText}>Karachi</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
         <TouchableOpacity
@@ -127,11 +128,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  welcome: {
+    fontFamily: 'Axiforma-Medium',
+    color: textColor,
+    fontSize: generalFontSize + 2,
+  },
   userName: {
     fontFamily: 'Axiforma-Bold',
     color: textColor,
     fontSize: generalFontSize + 4,
-    marginBottom: 5,
   },
   locationBtn: {
     flexDirection: 'row',

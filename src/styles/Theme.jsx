@@ -332,4 +332,25 @@ export const GlobalStyle = StyleSheet.create({
     position: 'relative',
     paddingBottom: 80,
   },
+  smallImgField: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 20
+  },
+  verticalBtnCont: {
+    width: windowWidth / 2 - 40,
+    gap: 10
+  },
+  smallImg: {
+    width: windowWidth / 2 - 40,
+    height: 120,
+    objectFit: 'contain',
+    backgroundColor: whiteColor,
+    borderRadius: 10,
+    shadowColor: blackColor,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.8,
+    shadowRadius: 0,
+    elevation: 5,
+  }
 });

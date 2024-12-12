@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import MainNav from './src/navigation/MainNav';
 import { Provider } from 'react-redux';
-import { store } from './src/Redux/Store';
+import { persistor, store } from './src/Redux/Store';
 import 'react-native-gesture-handler';
 import { handleNotificationPermission, handleForegroundNotification } from './src/utils/Utils';
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   useEffect(() => {
@@ -14,9 +15,11 @@ function App() {
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <MainNav />
-      </NavigationContainer>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <MainNav />
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }

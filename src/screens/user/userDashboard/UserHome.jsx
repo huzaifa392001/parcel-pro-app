@@ -14,9 +14,10 @@ import ServiceCard from '../../../components/ServiceCard';
 import services from '../../../data/servicesData.json'; // Import the JSON file
 import Banner from '../../../components/Banner';
 import { useSelector } from 'react-redux';
+import BecomeARider from '../../../components/BecomeARider';
 
 const UserHome = () => {
-  const [activeOrder, setActiveOrder] = useState(true)
+  const [activeOrder, setActiveOrder] = useState(false)
   const fcm = useSelector((state) => state.general.FCMToken)
   useEffect(() => {
     console.log("fcm")
@@ -33,16 +34,17 @@ const UserHome = () => {
               <ActiveOrderCard />
             </View>
           )}
-          <View style={[GlobalStyle.section, { paddingTop: 0 }]}>
+          <View style={[GlobalStyle.section, { paddingTop: activeOrder ? 0 : 20 }]}>
             <Text style={GlobalStyle.secHeading}>Services</Text>
             <FlatList
               data={services}
               numColumns={2}
-              columnWrapperStyle={{ gap: 20, paddingBottom: 20 }}
+              columnWrapperStyle={{ gap: 20, paddingBottom: 0 }}
               renderItem={({ item }) => <ServiceCard data={item} />}
             />
           </View>
-          <View style={[GlobalStyle.section, { paddingTop: 0 }]}>
+          <BecomeARider />
+          <View style={[GlobalStyle.section]}>
             <Text style={GlobalStyle.secHeading}>Recent Orders</Text>
             <OrdersList />
           </View>

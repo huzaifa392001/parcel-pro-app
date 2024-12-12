@@ -68,9 +68,9 @@ const Settings = ({ navigation }) => {
                                 style={{ marginLeft: 'auto' }}
                             />
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.menuItem}>
+                        <TouchableOpacity onPress={() => navigation.replace('registration')} style={styles.menuItem}>
                             <FontAwesomeIcon icon={faMotorcycle} size={generalFontSize + 4} color={themeColor} />
-                            <Text style={styles.menuText}>Become A Vendor</Text>
+                            <Text style={styles.menuText}>Become A Rider</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => handleDelete()} style={[styles.menuItem, styles.dltBtn]}>
                             <FontAwesomeIcon icon={faTrash} size={generalFontSize + 4} color={whiteColor} />

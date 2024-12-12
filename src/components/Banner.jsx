@@ -1,4 +1,4 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import {
   generalFontSize,
@@ -6,9 +6,9 @@ import {
   themeColor,
   whiteColor,
 } from '../styles/Theme';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faLongArrowRight} from '@fortawesome/free-solid-svg-icons';
-import {useNavigation} from '@react-navigation/native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faLongArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const Banner = () => {
   const navigation = useNavigation();
@@ -35,7 +35,7 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default React.memo(Banner);
 
 const styles = StyleSheet.create({
   banner: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     minHeight: 300,
     shadowColor: textColor,
-    shadowOffset: {width: 3, height: 3},
+    shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 0.8,
     shadowRadius: 10,
     elevation: 10,
