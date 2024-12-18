@@ -18,11 +18,12 @@ import {
   windowHeight,
   windowWidth,
 } from '../styles/Theme';
-import { useNavigation } from '@react-navigation/native';
 import { AuthService } from '../services/AuthService';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 
 const Sidebar = () => {
   const isActive = useSelector(state => state.general.isActive) || false;
+  const vendor = useSelector((state) => state.auth.isVendor)
   const sidebarAnim = useRef(new Animated.Value(-250)).current;
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -56,6 +57,16 @@ const Sidebar = () => {
     AuthService.logout()
   }
 
+  const handleRiderNav = () => {
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: 'vendorNavigation' }],
+      })
+    );
+    toggleDrawer();
+  }
+
   return (
     <>
       {isActive && (
@@ -85,6 +96,11 @@ const Sidebar = () => {
           )}
           keyExtractor={(item, index) => index.toString()}
         />
+        {vendor && (
+          <TouchableOpacity onPress={() => handleRiderNav()} style={[styles.linkBtn, styles.vendorBtn]}>
+            <Text style={[styles.linkBtnText, styles.vendorBtnText]}>Rider Dashboard</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity onPress={handleLogout} style={[styles.linkBtn, styles.logoutBtn]}>
           <Text style={[styles.linkBtnText, styles.logoutBtnText]}>Logout</Text>
         </TouchableOpacity>
@@ -180,4 +196,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Axiforma-Bold',
   },
+  vendorBtn: {
+    backgroundColor: themeColor,
+    marginHorizontal: 20,
+  },
+  vendorBtnText: {
+    color: whiteColor,
+    textAlign: 'center',
+    fontFamily: 'Axiforma-Bold',
+  }
 });

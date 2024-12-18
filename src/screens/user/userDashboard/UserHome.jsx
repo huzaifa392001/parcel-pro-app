@@ -19,6 +19,7 @@ import BecomeARider from '../../../components/BecomeARider';
 const UserHome = () => {
   const [activeOrder, setActiveOrder] = useState(false)
   const fcm = useSelector((state) => state.general.FCMToken)
+  const vendor = useSelector((state) => state.auth.isVendor)
   useEffect(() => {
     console.log("fcm")
   }, [])
@@ -43,7 +44,7 @@ const UserHome = () => {
               renderItem={({ item }) => <ServiceCard data={item} />}
             />
           </View>
-          <BecomeARider />
+          {!vendor && <BecomeARider />}
           <View style={[GlobalStyle.section]}>
             <Text style={GlobalStyle.secHeading}>Recent Orders</Text>
             <OrdersList />

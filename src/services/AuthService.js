@@ -19,6 +19,7 @@ export const AuthService = {
     logout: async () => {
         try {
             store.dispatch(SET_LOGOUT(false));
+            store.dispatch(SET_VENDOR(false));
         } catch (error) {
             console.log('Error making request:', error);
             // errorToast('Something Went Wrong')

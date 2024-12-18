@@ -352,5 +352,32 @@ export const GlobalStyle = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 0,
     elevation: 5,
+  },
+  toggleBtn: {
+    flexDirection: 'row',
+    backgroundColor: '#6b72ff80',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 5,
+    borderRadius: 30,
+  },
+  toggleBtnText: {
+    color: textColor,
+    fontFamily: "Axiforma-Medium",
+    fontSize: generalFontSize,
+    textTransform: "uppercase",
+  },
+  toggleBtnCont: {
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 30,
+  },
+  activeToggleBtn: {
+    backgroundColor: themeColor,
+  },
+  activeToggleBtnText: {
+    color: whiteColor
   }
 });

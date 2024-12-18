@@ -13,8 +13,9 @@ import {
 import React, { useState } from 'react';
 import { GlobalStyle, textColor } from '../../styles/Theme';
 import ImagePicker from 'react-native-image-crop-picker';
+import { AuthService } from '../../services/AuthService';
 
-const RiderRegistration = () => {
+const RiderRegistration = ({ navigation }) => {
     const [passportImageUri, setPassportImageUri] = useState(null);
     const [licenseFrontUri, setLicenseFrontUri] = useState(null);
     const [licenseBackUri, setLicenseBackUri] = useState(null);
@@ -38,6 +39,11 @@ const RiderRegistration = () => {
             })
             .catch((error) => console.log('Camera Error:', error));
     };
+
+    const handleRegistration = async () => {
+        await AuthService.vendor()
+        navigation.replace('home')
+    }
 
     return (
         <SafeAreaView style={[GlobalStyle.pageWrapper, { paddingTop: 30 }]}>
@@ -164,7 +170,7 @@ const RiderRegistration = () => {
                 </ScrollView>
                 <View style={[GlobalStyle.inputCont, GlobalStyle.submitBtnCont, GlobalStyle.floatingBtn]}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('step2')}
+                        onPress={() => handleRegistration()}
                         style={GlobalStyle.themeBtn}>
                         <Text style={GlobalStyle.themeBtnText}>Continue</Text>
                     </TouchableOpacity>

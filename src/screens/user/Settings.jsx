@@ -11,6 +11,7 @@ import { AuthService } from '../../services/AuthService';
 
 const Settings = ({ navigation }) => {
     const notiStatus = useSelector((state) => state.general.isNotificationActive);
+    const vendor = useSelector((state) => state.auth.isVendor)
 
     const handleNotificationStatus = async () => {
         if (notiStatus) {
@@ -68,10 +69,12 @@ const Settings = ({ navigation }) => {
                                 style={{ marginLeft: 'auto' }}
                             />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.replace('registration')} style={styles.menuItem}>
-                            <FontAwesomeIcon icon={faMotorcycle} size={generalFontSize + 4} color={themeColor} />
-                            <Text style={styles.menuText}>Become A Rider</Text>
-                        </TouchableOpacity>
+                        {!vendor && (
+                            <TouchableOpacity onPress={() => navigation.replace('registration')} style={styles.menuItem}>
+                                <FontAwesomeIcon icon={faMotorcycle} size={generalFontSize + 4} color={themeColor} />
+                                <Text style={styles.menuText}>Become A Rider</Text>
+                            </TouchableOpacity>
+                        )}
                         <TouchableOpacity onPress={() => handleDelete()} style={[styles.menuItem, styles.dltBtn]}>
                             <FontAwesomeIcon icon={faTrash} size={generalFontSize + 4} color={whiteColor} />
                             <Text style={[styles.menuText, styles.dltBtnText]}>Delete Your Account</Text>

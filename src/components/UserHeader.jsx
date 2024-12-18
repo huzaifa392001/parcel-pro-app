@@ -53,7 +53,7 @@ const UserHeader = ({ navigation }) => {
             </TouchableOpacity>
           )}
           <View>
-            <Text style={styles.welcome}>Welcome,</Text>
+            <Text style={styles.welcome}>Good Day,</Text>
             <Text style={styles.userName}>Huzaifa Iqbal</Text>
             {/* <TouchableOpacity style={styles.locationBtn}>
               <FontAwesomeIcon
