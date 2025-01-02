@@ -6,6 +6,7 @@ import { persistor, store } from './src/Redux/Store';
 import 'react-native-gesture-handler';
 import { handleNotificationPermission, handleForegroundNotification } from './src/utils/Utils';
 import { PersistGate } from 'redux-persist/integration/react';
+import Toast from 'react-native-toast-message';
 
 function App() {
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <MainNav />
+          <Toast />
         </NavigationContainer>
       </PersistGate>
     </Provider>

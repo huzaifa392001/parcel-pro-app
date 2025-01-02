@@ -186,6 +186,7 @@ export const GlobalStyle = StyleSheet.create({
   },
   inputCont: {
     marginBottom: 10,
+    flex: 1
   },
   inputLabel: {
     fontSize: generalFontSize + 2,
@@ -202,6 +203,7 @@ export const GlobalStyle = StyleSheet.create({
     fontSize: generalFontSize,
     fontFamily: 'Axiforma-Regular',
     color: textColor,
+    width: "100%"
   },
   altrInput: {
     borderColor: whiteColor,
@@ -379,5 +381,32 @@ export const GlobalStyle = StyleSheet.create({
   },
   activeToggleBtnText: {
     color: whiteColor
-  }
+  },
+  error: {
+    fontFamily: "Axiforma-Regular",
+    fontSize: generalFontSize - 2,
+    color: whiteColor,
+    marginTop: 2
+  },
+  errorField: {
+    borderColor: "#dc3545",
+    color: "#dc3545",
+  },
+  loadingContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    zIndex: 111111
+  },
+  loadingText: {
+    fontFamily: "Axiforma-Regular",
+    color: '#fff',
+    marginTop: 10,
+    fontSize: 16,
+  },
 });

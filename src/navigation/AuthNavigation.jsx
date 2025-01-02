@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const AuthNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName='welcome'>
+    <Stack.Navigator initialRouteName='signup'>
       <Stack.Screen
         name="welcome"
         component={AuthWelcome}

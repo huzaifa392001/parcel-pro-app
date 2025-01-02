@@ -5,6 +5,7 @@ const initialState = {
     loading: false,
     isAuthenticated: false,
     isVendor: false,
+    signUpNumber: ""
 };
 
 // Slice definition
@@ -24,6 +25,9 @@ export const authSlice = createSlice({
         SET_VENDOR: (state, action) => {
             state.isVendor = action.payload;
         },
+        SET_SIGNUP_NUMBER: (state, action) => {
+            state.signUpNumber = action.payload;
+        }
     }
 });
 
@@ -37,5 +41,5 @@ export const initializeAuth = () => async (dispatch) => {
 };
 
 // Export the generated action creators and reducer
-export const { SET_AUTH_LOADING, SET_LOGIN, SET_LOGOUT, SET_VENDOR } = authSlice.actions;
+export const { SET_AUTH_LOADING, SET_LOGIN, SET_LOGOUT, SET_VENDOR, SET_SIGNUP_NUMBER } = authSlice.actions;
 export default authSlice.reducer;

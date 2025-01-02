@@ -5,6 +5,7 @@ import { store } from "../Redux/Store"
 import { SET_FCM_TOKEN, SET_NOTIFICATION_STATUS } from '../Redux/Store/Slices/General';
 import { PermissionsAndroid, Alert } from 'react-native';
 import notifee from "@notifee/react-native"
+import Toast from 'react-native-toast-message';
 
 // Function to format time as 12-hour format with AM/PM
 export const formatTime = (date) => {
@@ -75,7 +76,23 @@ export const handleForegroundNotification = () => {
         await notifee.displayNotification({
             title: 'noti?.title',
             body: 'noti?.body',
-            
+
         });
     });
 };
+
+export const errorToast = (text) => {
+    Toast.show({
+        type: "error",
+        text1: "An Error Occurred!",
+        text2: text
+    })
+}
+
+export const successToast = (text1, text2) => {
+    Toast.show({
+        type: "success",
+        text1: text1,
+        text2: text2 || null
+    })
+}

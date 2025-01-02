@@ -58,4 +58,9 @@ export const AuthStyles = StyleSheet.create({
     formContainer: {
         marginTop: 30
     },
+    inputGroup: {
+        flexDirection: 'row',
+        gap: 10,
+        width: '100%'
+    }
 })
